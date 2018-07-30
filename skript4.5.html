@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Memvalidasi Nomor Telepon</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var data=$('.kotak_info').val();
+          if(validasi_notelp(data))
+          {
+            $('.error').hide();
+          }
+          else
+          {
+            $('.error').show();
+            event.preventDefault();
+          }
+        });
+      });
+	  function validasi_notelp(ph)
+      {
+         var pola=new RegExp(/^[0-9-+]+$/);
+         return pola.test(ph);
+      }
+    </script>
+  </head>
+  <body>
+    <form id="signup" method="post" action="">
+      <div>
+	    <span class="label">Masukkan Nomor Telepon </span>
+		<input type="text" class="kotak_info" name="telp" />
+		<span class="error"> Nomor telepon hanya boleh memuat angka, + dan -</span>
+      </div>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

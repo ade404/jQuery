@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Menyerialkan Data Form</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .id_pengguna {width: 200px; }
+      .alamat_email {width: 200px; }
+      .error_pengguna { color: red; padding-left: 10px; }
+      .error_email { color: red; padding-left: 10px; }
+      #submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error_pengguna').hide();
+        $('.error_email').hide();
+        $('#submit').click(function () {
+          var info = $("form").serialize();
+          $('#pesan').text('Format dimana elemen-elemen masukan diserialkan: '+info);
+          return false;
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <form>
+      <span class="label">Masukkan id pengguna</span>
+      <input type="text" name="id_pengguna" class="id_pengguna"/> 
+	  <span class="error_pengguna">
+      </span><br/><br/><br/>
+      <span class="label">Masukkan alamat email</span>
+      <input type="text" name="alamat_email" class="alamat_email"/> 
+	  <span class="error_email">
+	  </span><br/><br/>
+      <input type="submit" id="submit"/>
+    </form>
+    <div id="pesan"></div>
+  </body>
+</html>

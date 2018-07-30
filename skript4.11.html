@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Memeriksa Tombol Radio Dicentang Atau Tidak</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .kotak_info { margin-top: 15px; }
+      .error { color: red; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var total=0;
+          var hitung=$('input:checked').length;
+          if(hitung==0)
+          {
+            $('p.hasil').hide();
+            $('.error').show();
+          }
+          else
+          {
+            $('.error').hide();
+            $('p.hasil').show();
+            $('p.hasil').text('Anda telah menyeleksi '+$('input:checked').attr("value"));
+          }
+          event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="radio" name="mode_pembayaran" class="kotak_info" value="Master Card">Master Card <br>
+      <input type="radio" name="mode_pembayaran" class="kotak_info" value="Mandiri Card">Mandiri Card<br>
+      <input type="radio" name="mode_pembayaran" class="kotak_info" value="Visa Card">Visa Card<br>
+      <p class="error">Pilih Sedikitnya Satu Opsi </p>
+      <p class="hasil"></p>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

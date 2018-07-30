@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>Menciptakan Dua Menu dengan Item-Item Submenu</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      a{ text-decoration: none; color: #000;}
+      ul{ margin: 0; list-style: none; }
+      ul.dropdown li { float: left; background: cyan; }
+      ul.dropdown a:hover {background: #0f0; color: #00f; }
+      ul.dropdown li a { display: block; padding: 4px; border-right: 1px solid #000; }
+      ul.dropdown ul { width: 150px; visibility: hidden; position: absolute; }
+      ul.dropdown ul li {background: yellow; border-bottom: 1px solid #000; }
+      ul.dropdown ul li a { border-right: none; width: 100%; }
+      ul.dropdown ul ul { left: 100%; top: 0; }
+      .hover {position: relative; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $("ul.dropdown li").hover(function(){
+          $(this).addClass("hover");
+          $('ul:first',this).css('visibility', 'visible');
+        }, function(){
+          $(this).removeClass("hover");
+          $('ul:first',this).css('visibility', 'hidden');
+        });
+        $("ul.dropdown li ul li:has(ul)").find("a:first").append(" >");
+      });
+	</script>
+  </head>
+  <body>
+    <ul class="dropdown">
+      <li><a href="http://contoh.com">Buku</a>
+        <ul>
+          <li><a href="http://contoh.com">Pemrograman</a></li>
+          <li><a href="http://contoh.com">Pengembangan Web</a>
+            <ul>
+              <li><a href="http://contoh.com">.Net</a></li>
+              <li><a href="http://contoh.com">JSP</a></li>
+            </ul>
+          </li>
+          <li><a href="http://contoh.com">RDBMS</a></li>
+          <li><a href="http://contoh.com">Web Service</a></li>
+          <li><a href="http://contoh.com">Open Source</a></li>
+        </ul>
+      </li>
+      <li><a href="http://contoh.com">Film</a>
+        <ul>
+          <li><a href="http://contoh.com">Review Film</a></li>
+          <li><a href="http://contoh.com">Interview Selebriti</a></li>
+          <li><a href="http://contoh.com">Aktor Hollywood</a>
+            <ul>
+              <li><a href="http://contoh.com">Arnold Schwarzenegger</a></li>
+              <li><a href="http://contoh.com">Sylvester Stallone</a></li>
+              <li><a href="http://contoh.com">Bruce Willis</a></li>
+            </ul>
+          </li>
+          <li><a href="http://contoh.com">Film Aksi</a>
+            <ul>
+              <li><a href="http://contoh.com">Casino Royale</a></li>
+              <li><a href="http://contoh.com">Rambo III</a></li>
+            </ul>
+          </li>
+            <li><a href="http://contoh.com">Film Komedi</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

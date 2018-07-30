@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Menentukan Koordinat Layar dari Tombol Mouse</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 100px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('img').mousedown(function(event){
+          $('p').text('Mouse diklik pada koordinat horisontal: '+event.screenX+
+            ' dan pada koordinat vertikal: '+event.screenY);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <img src="film.jpg"/>
+    <p></p>
+  </body>
+</html>

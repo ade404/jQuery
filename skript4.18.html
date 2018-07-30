@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Mencentang dan Menghapus Centang Secara Bersamaan</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .kotak_info {width: 150px; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('#centang_semua').click(function(){
+          $("input[type='checkbox']").attr('checked', $('#centang_semua').is(':checked'));
+        });
+        $('form').find(':checkbox').click(function(){
+          var total=0;
+          $('div').filter(':gt(0)').find(':checkbox').each(function(){
+            if($('div:gt(0)'))
+            {
+              if($(this).is(':checked'))
+              {
+                total=total+parseInt($(this).val());
+              }
+            }
+          });
+          $('p').remove();
+          $('<p>').insertAfter('div:eq(4)');
+          $('p').text('Total Rp. '+total);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <div class="kotak_info">
+	    <input type="checkbox" id="centang_semua">Centang/Hapus-Centang Semua Kotak Periksa</div>
+      <div class="kotak_info">
+	    <input type="checkbox" id="bolu" name="bolu" value=5000>Bolu Rp.5000</div>
+      <div class="kotak_info"> 
+	    <input type="checkbox" id="hotdog" name="hotdog" value=7000>HotDog Rp.7000</div>
+      <div class="kotak_info">
+	    <input type="checkbox" id="kentang" name="kentang" value=30000>Kentang Rp.3000</div>
+      <div class="kotak_info">
+	    <input type="checkbox" id="pizza" name="pizza" value=20000>Pizza Rp.20000</div>
+    </form>
+  </body>
+</html>

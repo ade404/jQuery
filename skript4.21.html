@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Mencocokkan Password dan Confirm Password</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+      div{padding: 5px; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          data=$('.password').val();
+          var len=data.length;
+          if(len<1)
+          {
+            $('.password').next().show();
+          }
+          else
+          {
+            $('.password').next().hide();
+          }
+          if($('.password').val() !=$('.confpass').val())
+          {
+            $('.confpass').next().show();
+          }
+          else
+          {
+            $('.confpass').next().hide();
+          }
+            event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <div>
+        <span class="label">Id Pengguna</span>
+        <input type="text" class="id_pengguna" name="id_pengguna"/>
+      </div>
+      <div >
+        <span class="label">Password </span>
+        <input type="password" class="password" name="password"/>
+        <span class="error">Password tidak boleh kosong</span>
+      </div>
+      <div>
+        <span class="label">Confirm Password </span>
+        <input type="password" class="confpass" name="confpass"/>
+        <span class="error"> Password dan Confirm Password tidak sama</span>
+      </div>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

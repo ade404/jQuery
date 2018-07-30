@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Menciptakan Menu Navigasi dengan Kunci Akses</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      ul {
+        width: 200px;
+      }
+      ul li ul {
+        list-style-type:none;
+        margin: 5;
+        width: 200px;
+      }
+      a {
+        display:block;
+        border-bottom: 1px solid #fff;
+        text-decoration: none;
+        background: #00f;
+        color: #fff;
+        padding: 0.5em;
+      }
+      li {
+        display:inline;
+      }
+      .hover {
+        background: #000;
+      }
+	  .pintas{
+        text-decoration:underline;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.web').hide();
+        $('.prog').hide();
+        $('.rdbms').hide();
+		$('body').keypress(function(event){
+          if(String.fromCharCode(event.keyCode)=="w" || String.fromCharCode(event.keyCode)=="W")
+          {
+            $('#webd').hover();
+          }
+          if(String.fromCharCode(event.keyCode)=="p" || String.fromCharCode(event.keyCode)=="P")
+          {
+            $('#prmgmn').hover();
+          }
+          if(String.fromCharCode(event.keyCode)=="r" || String.fromCharCode(event.keyCode)=="R")
+          {
+            $('#datab').hover();
+          }
+        });
+        $('#webd').hover(function(event){
+          $('.web').show();
+          $('.prog').hide();
+          $('.rdbms').hide();
+          $('#webd').addClass('hover');
+        }, function(){
+          $('#webd').removeClass('hover');
+        });
+        $('#prmgmn').hover(function(event){
+        $('.web').hide();
+        $('.prog').show();
+        $('.rdbms').hide();
+        $('#prmgmn').addClass('hover');
+        }, function(){
+          $('#prmgmn').removeClass('hover');
+        });
+        $('#datab').hover(function(event){
+          $('.web').hide();
+          $('.prog').hide();
+          $('.rdbms').show();
+          $('#datab').addClass('hover');
+        }, function(){
+          $('#datab').removeClass('hover');
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <table>
+      <td>
+        <ul>
+          <li><a href="http://contoh.com">Buku</a>
+            <ul>
+              <li><a href="http://contoh.com" id="webd">
+			  <span class="pintas">P</span>emrograman Web</a></li>
+              <li><a href="http://contoh.com" id="prmgmn">
+			  <span class="pintas">B</span>elajar Pemrograman</a></li>
+              <li><a href="http://contoh.com" id="datab">
+			  <span class="pintas">R</span>DBMS</a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td valign="top">
+      <p class="web">Banyak buku yang merangkum ASP.NET, PHP, JSP dan lainnya.</p>
+      <p class="prog">Banyak buku yang mencakup pemrograman C, C++, Java dan lainnya.</p>
+      <p class="rdbms">Banyak buku yang mencakup DBM dengan Oracle, MySQL, dan SQL Server.</p>
+      </td>
+    </table>
+  </body>
+</html>

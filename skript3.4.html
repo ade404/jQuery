@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Menggunakan Atribut target dari Objek Event</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 100px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tombol').click(function(event){
+          var $target=$(event.target);
+          if($target.is('.tebal')){
+            alert('Anda mengklik tombol Tebal');
+          }
+          if($target.is('.miring')){
+            alert('Anda mengklik tombol Miring');
+          }
+        });
+	  });
+    </script>
+  </head>
+  <body>
+    <span class="tombol tebal">Tebal</span>
+    <span class="tombol miring">Miring</span>
+  </body>
+</html>

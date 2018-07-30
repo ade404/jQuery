@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Event Double-Click</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 100px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tombol').dblclick(function(){
+          alert('Anda mengklik-ganda tombol ' +$(this).text());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol tebal">Tebal</span>
+    <span class="tombol miring">Miring</span>
+  </body>
+</html>

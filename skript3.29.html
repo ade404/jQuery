@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Menampilkan Teks Dengan Efek Animasi dan Event MouseOver</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 100px;
+        float: left;
+        text-align: center;
+        color:#000;
+        background-color:blue;
+        margin: 5px;
+        font-weight: bold
+	  }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+	    $('.buku').hide();
+        $('.film').hide();
+        $('.musik').hide();
+        $('#tombol_buku').mouseover(function(){
+          $('.buku').show('slow');
+          $('.film').hide();
+          $('.musik').hide();
+		});
+		$('#tombol_film').mouseover(function(){
+          $('.film').show('slow');
+          $('.buku').hide();
+          $('.musik').hide();
+        });
+        $('#tombol_musik').mouseover(function(){
+          $('.musik').show('slow');
+          $('.buku').hide();
+          $('.film').hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol" id="tombol_buku"> Buku </span>
+    <span class="tombol" id="tombol_film"> Film </span>
+    <span class="tombol" id="tombol_musik"> Musik </span><br><br>
+    <p class="buku">BUKU: Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	JavaScript. CSS dapat mempermudah pekerjaan untuk mempercantik situs Web.
+  	Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	JavaScript.</p>
+	<p class="film">FILM: Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	JavaScript. CSS dapat mempermudah pekerjaan untuk mempercantik situs Web.
+  	Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	JavaScript.</p>
+	<p class="musik">MUSIK: Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	JavaScript. CSS dapat mempermudah pekerjaan untuk mempercantik situs Web.
+  	Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	JavaScript.</p>
+  </body>
+</html>

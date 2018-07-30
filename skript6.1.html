@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Menata Citra Secara Horisontal</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        var $gbr = $('#citra a');
+        $gbr.hide();
+        var cit_ra = $gbr.length;
+        var brktnya;
+        for (i=0;i<cit_ra;i++){
+          brktnya=$gbr.eq(i);
+          brktnya.css({'position': 'absolute','left':210*i});
+          brktnya.show();
+        }
+      });
+	</script>
+  </head>
+  <body>
+    <div id="citra">
+      <a href="http://contoh.com" ><img src="spring1.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com"><img src="spring2.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com"><img src="spring3.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com" ><img src="spring4.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com" ><img src="spring5.jpg" width=200px height=200px /></a>
+    </div>
+  </body>
+</html>

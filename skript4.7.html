@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Mevalidasi Tanggal</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var data=$('.kotak_info').val();
+          if(validasi_tanggal(data))
+          {
+            $('.error').hide();
+          }
+          else
+          {
+            $('.error').show();
+            event.preventDefault();
+          }
+        });
+      });
+	  function validasi_tanggal(tanggal)
+      {
+        var pola= new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
+        return pola.test(tanggal);
+      }
+    </script>
+  </head>
+  <body>
+    <form id="signup" method="post" action="">
+      <div>
+	    <span class="label">Masukkan Tanggal Lahir Anda </span>
+	    <input type="text" class="kotak_info" name="tgl_lahir" />
+	    <span class="error"> Tanggal tak valid. Format yang tepat adalah mm/dd/yyyy atau mm-dd-yyyy</span>
+	  </div>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

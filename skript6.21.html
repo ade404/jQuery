@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Menciptakan Content Slider</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .kecil img { border:none;margin:10px;width:60px; height:60px; }
+      .besar{width:200px; height:200px;}
+      .hover{color: blue ; background-color:cyan }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('td').find('p').css({'font-size':12, 'font-weight':'bold'});
+        $(".kecil").hover(function(){
+          $(this).parent().addClass('hover');
+          var nama_citra = $(this).attr('href');
+          $(".besar").fadeTo("slow", 0,function() {
+            $('.besar').attr('src',nama_citra);
+          }).fadeTo("slow", 1);
+		},
+        function(){
+          $(this).parent().removeClass('hover');
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <table border="1">
+      <tr><td width=150 align=center> <a href="a1.jpg" class="kecil"><img src="a1.jpg" /></a><p>
+      "Model: M1001. Harga Rp. 1.100.000"</td><td rowspan="4" width=350 align=center>
+	  <img src="a1.jpg" class="besar" /></td></tr>
+      <td width=150 align=center><a href="a2.jpg" class="kecil"><img src="a2.jpg"/></a><p>
+      "Model: M1002. Harga Rp. 1.500.000"</p></td></tr>
+      <td width=150 align=center><a href="a3.jpg" class="kecil"><img src="a3.jpg"/></a><p>
+      "Model: M1003. Harga Rp.900.000"</td></tr>
+      <td width=150 align=center> <a href="a4.jpg" class="kecil"><img src="a4.jpg"/></a><p>
+      "Model: M1004. Harga Rp.2.000.000"</td></tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Menyembunyikan Kolom Terseleksi</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover { background-color: #00f; color: #fff; }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('th').hover(
+          function(){
+            var indeks_kolom=$(this).parent().children().index(this);
+            $(this).addClass('hover');
+            $('table td:nth-child('+(indeks_kolom+1)+')').addClass('hover');
+          },
+          function(){
+            $('table tr').children().removeClass('hover');
+          }
+        );
+        $('th').click(function(){
+          $(this).hide();
+          indeks_kolom=$(this).parent().children().index(this);
+          $('table td:nth-child('+(indeks_kolom+1)+')').hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr><th>Lemparan</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>101</td><td>Jono</td><td>87</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>103</td><td>Acong</td><td>85</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

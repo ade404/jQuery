@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Mevalidasi ID Pengguna</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var data=$('.kotak_info').val();
+          if(validasi_id_pengguna(data))
+          {
+            $('.error').hide();
+          }
+          else
+          {
+            $('.error').show();
+            event.preventDefault();
+          }
+        });
+      });
+	  function validasi_id_pengguna(uid)
+      {
+        var pola= new RegExp(/^[a-z0-9_]+$/);
+        return pola.test(uid);
+      }
+    </script>
+  </head>
+  <body>
+    <form id="signup" method="post" action="">
+      <div>
+	    <span class="label">Masukkan id Pengguna </span>
+		<input type="text" class="kotak_info" name="id_penguna" />
+		<span class="error">ID Pengguna hanya memuat huruf, angka, atau garis-bawah</span>
+      </div>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

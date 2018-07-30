@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Mengurutkan Array Numerik</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggota = [45, 10,3,22,7 ];
+        $('p.semua_anggota').html(anggota.join("<br>"));
+        anggota = anggota.sort(function(a,b){
+          return a-b;
+        });
+      $('p.diurutkan').html(anggota.join("<br>"));
+	  });
+    </script>
+  </head>
+  <body>
+    <h3>Array numerik awal adalah</h3>
+    <p class="semua_anggota"></p>
+    <h3>Array hasil pengurutan adalah</h3>
+    <p class="diurutkan"></p>
+  </body>
+</html>

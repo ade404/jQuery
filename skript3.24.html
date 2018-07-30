@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Menampilkan Balon Kata</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 150px;
+        float: left;
+        text-align: center;
+        color:#000;
+        background-color:blue;
+        margin: 5px;
+        font-weight: bold;
+      }
+	  .hover{
+        color:red;
+        background:url(balloon.jpg);
+        background-repeat:no-repeat;
+        background-position:bottom;
+      }
+	  .tampiltip{
+        display:block;
+        margin:40px;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tombol').hover(
+          function(event){
+            $(this).addClass('hover');
+            var $txt=$(this).text();
+            $('<span class="tampiltip"> Ini adalah menu '+$txt+' </span>').appendTo($(this));
+          },
+          function(){
+            $(this).removeClass('hover');
+            $('.tampiltip').remove();
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol tebal">Tebal</span>
+    <span class="tombol miring">Miring</span>
+  </body>
+</html>

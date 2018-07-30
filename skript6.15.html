@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Menggulung Ke Kanan</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      #scroller {
+        height: 200px;
+        width: 610px;
+        overflow:hidden;
+        position: relative;
+        margin:auto;
+      }
+      #citra{
+        width: 1050px;
+      }
+      #citra a img {border:0; position:relative;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        var $pembungkus=$('#scroller a img');
+        $pembungkus.css({right:0});
+        var animator = function(imgblock) {
+          imgblock.animate(
+            {right:-810}, 5000,
+              function() {
+                imgblock.css({right:800});
+                animator($(this));
+              }
+          );
+        }
+        animator($pembungkus);
+        $pembungkus.hover(
+          function(){
+            $pembungkus.stop();
+          },
+          function(){
+            animator($pembungkus);
+          }
+        );
+      });
+	</script>
+  </head>
+  <body>
+    <div id="scroller">
+    <div id="citra">
+      <a href="http://contoh.com" ><img src="spring1.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com"><img src="spring2.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com"><img src="spring3.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com" ><img src="spring4.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com" ><img src="spring5.jpg" width=200px height=200px /></a>
+    </div>
+	</div>
+  </body>
+</html>

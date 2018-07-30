@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Menciptakan Menu Konteks dengan Klik-Kanan</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      ul {
+        width: 200px;
+      }
+      ul li ul {
+        list-style-type:none;
+        margin: 5;
+        width: 200px;
+      }
+      a {
+        display:block;
+        border-bottom: 1px solid #fff;
+        text-decoration: none;
+        background: #00f;
+        color: #fff;
+        padding: 0.5em;
+      }
+      li {
+        display:inline;
+      }
+      .hover {
+        background: #000;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('#menu_konteks').hide();
+          $('.info').mousedown(function(event){
+            if(event.button==2){
+              $('#menu_konteks').show();
+              $('#menu_konteks').css({'position': 'absolute', 'left':event.screenX,
+                   'top':event.screenY-100});
+            }
+          });
+          $('a').hover(function(event){
+            $(this).addClass('hover');
+          },function(){
+            $(this).removeClass('hover');
+          });
+          $('body').keypress(function(event){
+          if(event.keyCode==27)
+          {
+            $('#menu_konteks').hide();
+          }
+        });
+      });
+	</script>
+  </head>
+  <body oncontextmenu="return false">
+    <p class="info">
+    Buku adalah dunia informasi. Buku adalah teman terbaik.
+	Orang Bijak selalu memiliki rak buku</p>
+    <ul id="menu_konteks">
+      <li><a href="http://contoh.com">Buku</a>
+        <ul>
+          <li><a href="http://contoh.com">Pengembangan Web</a></li>
+          <li><a href="http://contoh.com">Pemrograman</a></li>
+          <li><a href="http://contoh.com">RDBMS</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

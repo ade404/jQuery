@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>Mengetahui Apakah Kotak-Periksa Dicentang</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .kotak_info { margin-top: 15px; }
+      .error { color: red; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+          $('.submit').click(function(event){
+            var total=0;
+            var hitung=$('input:checked').length;
+            if(hitung==0)
+            {
+              $('p.hasil').hide();
+              $('.error').show();
+            }
+            else
+            {
+              $('form').find(':checkbox').each(function(){
+                if($(this).is(':checked'))
+                { 
+                  total=total+parseInt($(this).val());
+                }
+              });
+              $('.error').hide();
+              $('p.hasil').show();
+              $('p.hasil').text('Total Rp. '+total);
+            }
+          event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="checkbox" id="bolu" name="bolu" value=5000 class="kotak_info">Bolu Rp.5000 <br>
+      <input type="checkbox" id="hotdog" name="hotdog" value=7000 class="kotak_info">HotDog Rp.7000<br>
+      <input type="checkbox" id="roti" name="roti" value=4000 class="kotak_info">Roti Rp.4000<br>
+      <input type="checkbox" id="kentang" name="kentang" value=3000 class="kotak_info">Kentang Rp.3000<br>
+      <p class="error">Pilih sedikitnya satu kotak-periksa </p>
+      <p class="hasil"></p>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

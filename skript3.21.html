@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Menciptakan Efek Rollover Berbasis Citra</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .link{
+        display:block;
+        width:100px;
+        height:100px;
+        background-image:url(btn1.jpg);
+        background-repeat:no-repeat;
+        background-position: top left;
+      }
+      .hover{
+        display:block;
+        width:100px;
+        height:100px;
+        background-image:url(btn2.jpg);
+        background-repeat:no-repeat;
+        background-position: top left;
+      }
+      .aktif{
+        display:block;
+        width:100pxpx;
+        height:100pxpx;
+        background-image:url(btn3.jpg);
+        background-repeat:no-repeat;
+        background-position: top left;
+      }
+      img{
+        border:0;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.roll').addClass('link');
+        $('.roll').hover(
+          function(){
+            $(this).addClass('hover');
+          },
+          function(){
+            $(this).removeClass('hover');
+          }
+		  );
+		  $('.roll').click(function(event){
+            $(this).addClass('aktif');
+            event.preventDefault();
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="abc.com"><span class="roll"></span></a>
+  </body>
+</html>

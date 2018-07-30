@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Membuat Slideshow</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      #scroller {
+        position: relative;
+        height: 810px;
+        width: 200px;
+      }
+      #scroller a img { border:0; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        var $pembungkus=$('#scroller');
+        $pembungkus.css({overflow: 'hidden'});
+        var animator = function(imgblock) {
+          imgblock.animate(
+            {bottom:"-" + imgblock.height() + "px"}, 5000,
+              function() {
+                $(this).css({ bottom:imgblock.height()});
+                animator($(this));
+              }
+          );
+        }
+        animator($pembungkus);
+      });
+	</script>
+  </head>
+  <body>
+    <div id="scroller">
+      <a href="http://contoh.com" ><img src="spring1.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com"><img src="spring2.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com"><img src="spring3.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com" ><img src="spring4.jpg" width=200px height=200px /></a>
+      <a href="http://contoh.com" ><img src="spring5.jpg" width=200px height=200px /></a>
+    </div>
+  </body>
+</html>

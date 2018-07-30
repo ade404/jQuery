@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Menggabungkan Array</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggota1 = [45, 10, 3];
+        var anggota2 = [22, 7];
+        $('p.array_pertama').html(anggota1.join("<br/>"));
+        $('p.array_kedua').html(anggota2.join("<br/>"));
+        anggota = anggota1.concat(anggota2);
+        $('p.array_gabung').html(anggota.join("<br/>"));
+	  });
+    </script>
+  </head>
+  <body>
+    <h3>Array pertama adalah </h3>
+    <p class="array_pertama"></p>
+    <h3>Array kedua adalah </h3>
+    <p class="array_kedua"></p>
+    <h3>Array hasil penggabungan adalah</h3>
+    <p class="array_gabung"></p>
+  </body>
+</html>

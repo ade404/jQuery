@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Menciptakan Menu Breadcrumb</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      ul {
+        width: 200px;
+      }
+      ul li ul {
+        list-style-type:none;
+        margin: 5;
+        width: 200px;
+      }
+      a {
+        display:block;
+        border-bottom: 1px solid #fff;
+        text-decoration: none;
+        background: #00f;
+        color: #fff;
+        padding: 0.5em;
+      }
+      li {
+        display:inline;
+      }
+      .hover {
+        background: #000;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.web').hide();
+        $('.prog').hide();
+        $('.rdbms').hide();
+        $('#webd').hover(function(event){
+          $('.web').show();
+          $('.prog').hide();
+          $('.rdbms').hide();
+          $('#webd').addClass('hover');
+        }, function(){
+          $('#webd').removeClass('hover');
+        });
+        $('#prmgmn').hover(function(event){
+        $('.web').hide();
+        $('.prog').show();
+        $('.rdbms').hide();
+        $('#prmgmn').addClass('hover');
+        }, function(){
+          $('#prmgmn').removeClass('hover');
+        });
+        $('#datab').hover(function(event){
+          $('.web').hide();
+          $('.prog').hide();
+          $('.rdbms').show();
+          $('#datab').addClass('hover');
+        }, function(){
+          $('#datab').removeClass('hover');
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <table>
+      <td>
+        <ul>
+          <li><a href="http://contoh.com">Buku</a>
+            <ul>
+              <li><a href="http://contoh.com" id="webd">Pemrograman Web</a></li>
+              <li><a href="http://contoh.com" id="prmgmn">Pemrograman</a></li>
+              <li><a href="http://contoh.com" id="datab">RDBMS</a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td valign="top">
+       <p class="web">Banyak buku yang merangkum ASP.NET, PHP, JSP dan lainnya.</p>
+      <p class="prog">Banyak buku yang mencakup pemrograman C, C++, Java dan lainnya.</p>
+      <p class="rdbms">Banyak buku yang mencakup DBM dengan Oracle, MySQL, dan SQL Server.</p>
+      </td>
+    </table>
+  </body>
+</html>

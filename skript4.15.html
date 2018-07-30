@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Menerapkan Gaya Pada Opsi dan Tombol</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 150px; }
+      .kotak_info {width: 150px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 150px; margin-top: 10px;}
+	  option{
+        background-color:red;
+        color:white;
+      }
+	  .makan{
+        background-color:cyan;
+        color:blue;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('option:odd').addClass('makan');
+        $('.submit').click(function(event){
+		  var itemdipilih="";
+          var hitung=$('select option:selected').val();
+          if(hitung==0)
+          {
+            $('p.hasil').hide();
+            $('.error').show();
+          }
+          else
+          {
+		    $('select option:selected').each(function(){
+              itemdipilih+=$(this).text()+", ";
+            });
+            $('.error').hide();
+            $('p.hasil').show();
+            $('p.hasil').text('Anda telah memilih '+itemdipilih);
+          }
+          event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <span class="label">Pilih Satu Makanan </span>
+      <select id="makanan" class="kotak_info" MULTIPLE>
+        <option value="0">Pilih Satu Makanan</option>
+        <option value="Pizza Rp.5000">Pizza Rp.5000</option>
+        <option value="HotDog Rp.10000">HotDog Rp.10000</option>
+        <option value="Bolu Rp.10000">Bolu Rp.10000</option>
+        <option value="Kentang Goreng Rp.7000">Kentang Goreng Rp.7000</option>
+      </select>
+      <p class="error">Anda tidak memilih satupun opsi</p>
+      <p class="hasil"></p>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

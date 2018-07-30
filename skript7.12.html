@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Paginasi Tabel</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover { background-color: #00f; color: #fff; }
+      .hal{ margin:5px; }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var baris=$('table').find('tbody tr').length;
+        var norek_per_hal=1;
+        var jlh_hal= Math.ceil(baris/norek_per_hal);
+        var $no_hal=$('<div id="pages"></div>');
+        for(i=0;i<jlh_hal;i++)
+        {
+          $('<span class="hal">'+(i+1)+'</span>').appendTo($no_hal);
+        }
+        $no_hal.insertBefore('table');
+        $('.hal').hover(
+          function(){
+            $(this).addClass('hover');
+          },
+          function(){
+            $(this).removeClass('hover');
+          }
+        );
+        $('table').find('tbody tr').hide();
+        var tr=$('table tbody tr');
+        for(var i=0;i<=norek_per_hal-1;i++)
+        {
+          $(tr[i]).show();
+        }
+        $('span').click(function(event){
+          $('table').find('tbody tr').hide();
+          for(var i=($(this).text()-1)*norek_per_hal;
+            i<=$(this).text()*norek_per_hal-1;
+            i++)
+          {
+            $(tr[i]).show();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+  <table border="1">
+      <thead>
+        <tr><th>Lemparan</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>101</td><td>Jono</td><td>87</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>103</td><td>Acong</td><td>85</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

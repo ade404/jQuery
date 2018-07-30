@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Menampilkan kepala kolom yang diseleksi</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover{
+        cursor: default;
+        color: blue ;
+        background-color:cyan
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('th').each(function() {
+          $(this).hover(
+            function(){
+              $(this).addClass('hover');
+            },
+            function(){
+              $(this).removeClass('hover');
+            }
+          );
+          $(this).click(function(){
+            alert('Kolom '+$(this).text()+' diseleksi');
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr><th>NIM</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>103</td><td>Jono</td><td>85</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>101</td><td>Acong</td><td>87</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

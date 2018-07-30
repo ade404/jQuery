@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Menjelajah Array Objek</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var bulan = [ 'Januari', 'Februari', 'Maret', 'April', 'Mei',
+                       'Juni', 'Juli', 'Agustus', 'September', 'Oktober',
+                       'November', 'Desember'];
+        $.each(bulan, function(index, value) {
+          $('#bulan').append('<li>' + value + '</li>');
+        });
+		
+        var hari = { Minggu: 0, Senin: 1, Selasa: 2, Rabu: 3,
+                     Kamis: 4, Jumat: 5, Minggu: 6 };
+        $.each(hari, function(key, value) {
+          $('#hari').append('<li>' + key + ' (' + value + ')</li>');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Daftar bulan adalah</h3>
+    <p id="bulan"></p>
+	<h3>Daftar hari adalah </h3>
+    <p id="hari"></p>
+  </body>
+</html>

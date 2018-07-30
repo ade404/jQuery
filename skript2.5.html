@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Mengkonversi Menjadi Huruf Besar</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+	    var anggota = ["Jono", "Ucok", "Acong", "Damar", "Toni"];
+        anggota = $.map(anggota, function(n,i){ return(i+1+"."+n.toUpperCase());});
+        $('p').html(anggota.join("<br />"));
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Anggota-Anggota Kelompokku Adalah</h3>
+    <p></p>
+  </body>
+</html>

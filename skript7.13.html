@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Membuka dan Menutup List</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .citraplus{list-style-image:url(plus.jpg);}
+      .citraminus{list-style-image:url(minus.jpg);}
+      .tdk_citra{list-style-image:none;}
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('li.minuman').addClass('citraplus');
+        $('li.minuman').children().addClass('tdk_citra');
+        $('li.minuman').children().hide();
+        $('li.minuman').each(
+          function(column) {
+            $(this).click(function(event){
+              if (this == event.target) {
+                if($(this).is('.citraplus')) {
+                  $(this).children().show();
+                  $(this).removeClass('citraplus');
+                  $(this).addClass('citraminus');
+                }
+                else
+                {
+                  $(this).children().hide();
+                  $(this).removeClass('citraminus');
+                  $(this).addClass('citraplus');
+                }
+              }
+            });
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+    <li class="minuman">Teh
+      <ul>
+        <li>Teh Manis</li>
+        <li class="minuman">Teh Panas
+          <ul>
+            <li>Teh Hijau</li>
+            <li>Teh Herbal</li>
+          </ul>
+        </li>
+        <li>Teh Jeruk</li>
+      </ul>
+    </li>
+    <li class="minuman">Kopi
+      <ul>
+        <li>Cappucino</li>
+        <li>Cafe Latte</li>
+      </ul>
+    </li>
+  </ul>
+  </body>
+</html>

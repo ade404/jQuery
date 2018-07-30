@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Menambah Efek Hover Pada Item Menu</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      ul {
+        width: 200px;
+      }
+      ul li ul {
+        list-style-type:none;
+        margin: 5;
+        width: 200px;
+      }
+      a {
+        display:block;
+        border-bottom: 1px solid #fff;
+        text-decoration: none;
+        background: #00f;
+        color: #fff;
+        padding: 0.5em;
+      }
+      li {
+        display:inline;
+      }
+      .hover {
+        background: #000;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('a').hover(
+          function(event){
+            $(this).addClass('hover');
+          },
+          function(){
+            $(this).removeClass('hover');
+          }
+        );
+      });
+	</script>
+  </head>
+  <body>
+    <ul id="menu">
+      <li><a href="http://contoh.com">Buku</a>
+      <ul>
+        <li><a href="http://contoh.com">Pengembangan Web</a></li>
+        <li><a href="http://contoh.com">Pemrograman</a></li>
+        <li><a href="http://contoh.com">RDBMS</a></li>
+      </ul>
+      </li>
+    </ul>
+  </body>
+</html>

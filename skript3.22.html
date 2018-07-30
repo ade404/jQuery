@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Menambah dan Menghapus Teks Sebagai Respons Terhadap Event</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 80px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tambah').click(function(){
+          $('div').prepend('<p> CSS dapat mempermudah pekerjaan untuk mempercantik situs Web. '
+		  +'Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. '
+		  +'Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang '
+		  +'JavaScript.</p>');
+        });
+        $('.hapus').click(function(){
+          $('p').remove();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol tambah">Tambah</span>
+    <span class="tombol hapus">Hapus</span><br><br>
+    <div></div>
+  </body>
+</html>

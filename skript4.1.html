@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Memastikan Bidang Tertentu Tidak Kosong</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var data=$('.kotak_info').val();
+          var len=data.length;
+          if(len<1)
+          {
+            $('.error').show();
+            event.preventDefault();
+          }
+          else
+          {
+            $('.error').hide();
+            }
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="signup" method="post" action="">
+      <div>
+	  <span class="label">ID User *</span><input type="text" class="kotak_info" name="userid"/>
+	  <span class="error">Bidang ini tidak boleh kosong</span></div>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

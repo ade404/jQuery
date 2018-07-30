@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Menerapkan Gaya Sebagai Respons Terhadap Event</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 80px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+	  .hover{
+        cursor: crosshair;
+        color: blue ;
+        background-color:cyan
+      }
+      .terkait_tebal
+      {
+        font-weight: bold;
+      }
+      .terkait_miring
+      {
+       font-style: italic;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tombol').hover(
+          function(){
+            $(this).addClass('hover');
+          },
+          function(){
+            $(this).removeClass('hover');
+          }
+        );
+        $('#tombol_tebal').bind('click', function(){
+          $('#info').removeClass('terkait_miring');
+          $('#info').addClass('terkait_tebal');
+        });
+        $('#tombol_miring').bind('click', function(){
+          $('#info').removeClass('terkait_tebal');
+          $('#info').addClass('terkait_miring');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol" id="tombol_tebal">Tebal</span>
+    <span class="tombol" id="tombol_miring">Miring</span><br/><br/>
+    <div id="info">Menciptakan Aplikasi Internet Yang Kaya<br/>
+    jQuery merupakan sebuah projek open source<br/>
+    Untuk memanipulasi DOM<br/>
+    </div>
+  </body>
+</html>

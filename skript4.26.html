@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Menciptakan Menu Breadcrumb</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .gayalist {
+        background-image:url(arrow.jpg);
+        background-repeat:no-repeat;
+        background-position:left;
+        padding-left:30px;
+        display: inline;
+     }
+     .gayaulist {
+       list-style:none;
+       margin:0;
+       padding:0;
+       display: inline;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('ul').addClass('gayaulist');
+        $('ul li ul li').addClass('gayalist');
+      });
+	</script>
+  </head>
+  <body>
+    <ul id="menu">
+      <li><a href="http://example.com">Buku</a>
+      <ul>
+        <li><a href="http://example.com">Pengembangan Web</a></li>
+        <li><a href="http://example.com">Pemrograman</a></li>
+        <li><a href="http://example.com">RDBMS</a></li>
+      </ul>
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <title>Memvalidasi Keseluruhan Form</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 120px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+      div{padding: 5px; }
+      .chkb { margin-left: 125px; margin-top: 10px;}
+      .radiobtn { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.error_makanan').addClass('error');
+        $('.error_makanan').hide();
+        $('.error_pembayaran').addClass('error');
+        $('.error_pembayaran').hide();
+        $('.submit').click(function(event){
+          var data=$('.id_pengguna').val();
+          if(validasi_idpengguna(data))
+          {
+            $('.id_pengguna').next().hide();
+          }
+          else
+          {
+            $('.id_pengguna').next().show();
+          }
+          data=$('.password').val();
+          var len=data.length;
+          if(len<1)
+          {
+            $('.password').next().show();
+          }
+          else
+          {
+            $('.password').next().hide();
+          }
+          data=$('.alamat_email').val();
+          if(validasi_email(data))
+          {
+            $('.alamat_email').next().hide();
+          }
+          else
+          {
+            $('.alamat_email').next().show();
+          }
+          var hitung=0;
+          $('div').find(':checkbox').each(function(){
+            if($(this).is(':checked'))
+            {
+              hitung++;
+            }
+          });
+          if(hitung==0)
+          {
+            $('.error_makanan').css({'margin-left':250}).show();
+          }
+          else
+          {
+            $('.error_makanan').hide();
+          }
+          hitung=0;
+          $('div').find(':radio').each(function(){
+            if($(this).is(':checked'))
+            {
+              hitung++;
+            }
+          });
+          if(hitung==0)
+          {
+            $('.error_pembayaran').css({'margin-left':250}).show();
+          }
+          else
+          {
+            $('.error_pembayaran').hide();
+          }
+          hitung=$('select option:selected').val();
+          if(hitung==0)
+          {
+            $('.kotak_info').next().show();
+          }
+          else
+          {
+            $('.kotak_info').next().hide();
+          }
+            event.preventDefault();
+        });
+      });
+	  function validasi_email(email)
+      {
+        var pola= new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+        return pola.test(email);
+      }
+      function validasi_idpengguna(uid)
+      {
+        var pola= new RegExp(/^[a-z0-9_]+$/);
+        return pola.test(uid);
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <div> 
+        <span class="label">Id Pengguna </span>
+        <input type="text" class="id_pengguna" name="id_pengguna"/>
+        <span class="error">Id Pengguna hanya dapat memuat angka, karakter atau garis-bawah (_)</span>
+      </div>
+      <div>
+        <span class="label">Password </span>
+        <input type="password" class="password"name="password"/>
+        <span class="error">Password tidak boleh kosong</span>
+      </div>
+      <div>
+        <span class="label">Alamat Email</span>
+        <input type="text" class="alamat_email" name="alamat_email"/>
+        <span class="error">Alamat Email Tak Valid</span>
+      </div>
+      <div>
+        <span class="label">Pilih Makanan</span><br>
+        <input type="checkbox" id="pizza" name="pizza" value=5000 class="chkb">Pizza Rp.5000<br>
+        <input type="checkbox" id="hotdog" name="hotdog" value=2 class="chkb">HotDog Rp.7000<br>
+        <input type="checkbox" id="bolu" name="bolu" value=10000 class="chkb">Bolu Rp.10000<br>
+        <input type="checkbox" id="kentang" name="kentang" value=3000 class="chkb">Kentang Rp.3000<br>
+        <span class="error_makanan">Anda tidak memilih makanan satupun</span>
+      </div>
+      <div>
+        <span class="label">Pembayaran</span><br>
+        <input type="radio" name="mode_pembayaran" 
+		       class="radiobtn" value="Master Card">Master Card <br>
+        <input type="radio" name="mode_pembayaran" 
+		       class="radiobtn" value="Mandiri Card">Mandiri Card<br>
+        <input type="radio" name="mode_pembayaran" 
+		       class="radiobtn" value="Visa Card">Visa Card<br>
+        <span class="error_pembayaran">Anda tidak memilih mode pembayaran</span>
+      </div>
+      <div>
+        <span class="label">Negara</span>
+	    <select id="negara" class="kotak_info">
+          <option value="0">Pilih Negara</option>
+          <option value="Indonesia">Indonesia</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="India">India</option>
+          <option value="China">China</option>
+        </select>
+        <span class="error">Silahkan pilih negara</span>
+      </div>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

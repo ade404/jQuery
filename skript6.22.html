@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Menampilkan Citra-Citra dengan Pagewise</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hal{
+        margin:5px;
+      }
+      .hover{
+        color: blue ;
+        background-color:cyan
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var $gbr = $('#citra a');
+        $gbr.hide();
+        var bnyk_citra = $gbr.length;
+        var brktnya=$gbr.eq(0);
+        brktnya.css({'position': 'absolute','left':10});
+        brktnya.show();
+        var $no_hal=$('<div id="halaman"></div>');
+        for(i=0;i<bnyk_citra;i++)
+        {
+          $('<span class="hal">'+(i+1)+'</span>').appendTo($no_hal);
+        }
+        $no_hal.insertBefore(brktnya);
+        $('.hal').hover(
+          function(){
+            $(this).addClass('hover');
+          },
+          function(){
+            $(this).removeClass('hover');
+          }
+        );
+        $('span').click(function(event){
+          $gbr.hide();
+          brktnya=$gbr.eq($(this).text()-1);
+          brktnya.show();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="citra">
+      <a href="http://contoh.com" ><img src="a1.jpg" width=200px height=250px /></a>
+      <a href="http://contoh.com"><img src="a2.jpg" width=200px height=250px /></a>
+      <a href="http://contoh.com"><img src="a3.jpg" width=200px height=250px /></a>
+      <a href="http://contoh.com" ><img src="a4.jpg" width=200px height=250px /></a>
+      <a href="http://contoh.com" ><img src="a5.jpg" width=200px height=250px /></a>
+    </div>
+  </body>
+</html>

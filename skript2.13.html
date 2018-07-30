@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Mengkonversi Array Numerik Menjadi String</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggota = [45, 10, 3, 22, 7];
+        $('p.array_awal').html(anggota.join("<br/>"));
+        var str = anggota.join("");
+        $('p.array_string').text(str);
+        var substr = str.substr(0,3);
+        $('p.potongan_string').text(substr);
+	  });
+    </script>
+  </head>
+  <body>
+    <h3>Array awal adalah</h3>
+    <p class="array_awal"></p>
+    <h3>Array dalam format string adalah</h3>
+    <p class="array_string"></p>
+    <h3>Substring adalah</h3>
+    <p class="potongan_string"></p>
+  </body>
+</html>

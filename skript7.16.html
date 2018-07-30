@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Mengurutkan Item-Item List</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover { background-color: #00f; color: #fff; }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var minuman = $('ul').children('li').get();
+        minuman.sort(function(a, b) {
+          var val1 = $(a).text().toUpperCase();
+          var val2 = $(b).text().toUpperCase();
+          return (val1 < val2) ? -1 : (val1 > val2) ? 1 : 0;
+        });
+        $.each(minuman, function(index, row) {
+          $('ul').append(row);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>Teh</li>
+      <li>Kopi</li>
+      <li>Pepsi</li>
+      <li>Cocacola</li>
+      <li>Tuak</li>
+    </ul>
+  </body>
+</html>

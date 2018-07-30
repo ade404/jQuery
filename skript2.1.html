@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Menampilkan Nama-Nama di dalam List</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        var anggota = [ "Jono", "Ucok", "Acong", "Damar", "Toni" ];
+        $('p').text(anggota.join(", "));
+      });
+	</script>
+  </head>
+  <body>
+    <h3>Daftar anggota kelompok saya adalah</h3>
+    <p></p>
+  </body>
+</html>

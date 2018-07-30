@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Menciptakan Sebuah Citra Yang Bergeser Ke Kiri, Menghilang, 
+	dan Tampil Kembali di Kanan</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+	#scroller{
+      width:155px;
+      height:155px;
+      margin:auto;
+      overflow:hidden;
+      position:relative;
+    }
+	.citra{
+      position:relative;
+	}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.citra').click(function (event){
+          $(this).animate({'left': -210},'slow',function(){
+            $(this).css('left',190);
+            $(this).animate({'left': 0}, 'slow');
+          });
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <div id="scroller">
+      <img src="spring1.jpg" width=200px height=200px class="citra"/>
+	</div>
+  </body>
+</html>

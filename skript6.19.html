@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Menampilkan Citra Diperbesar Saat Mouseover</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .kecil img { border:none;margin:10px;width:60px; height:60px; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $(".kecil a").hover(function(){
+          var nama_citra = $(this).attr('href');
+          $(".besar").fadeTo("slow", 0,function() {
+            $('.besar').attr('src',nama_citra);
+          }).fadeTo("slow", 1);
+       });
+      });
+	</script>
+  </head>
+  <body>
+    <div class="kecil">
+      <a href="a1.jpg"><img src="a1.jpg" /></a>
+      <a href="a2.jpg"><img src="a2.jpg" /></a>
+      <a href="a3.jpg"><img src="a3.jpg" /></a>
+      <a href="a4.jpg"><img src="a4.jpg" /></a>
+    </div>
+    <img src="a1.jpg" class="besar" />
+  </body>
+</html>

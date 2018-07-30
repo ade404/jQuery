@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Membolehkan Rentang Nilai</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var data=$('.kotak_info').val();
+          var len=data.length;
+          var c=0;
+          var usia=0;
+          var flag=0;
+          for(var i=0;i<len;i++)
+          {
+            c=data.charAt(i).charCodeAt(0);
+            if(c <48 || c >57)
+            {
+              $('.error').show();
+              flag=1;
+              event.preventDefault();
+              break;
+            }
+            else
+            {
+              $('.error').hide();
+            }
+          }
+          if(flag==0)
+          {
+            usia=parseInt(data);
+            if(usia<5 || usia>99)
+            {
+              $('.error').show();
+              $('.error').text('Silahkan masukkan usia dalam rentang 5 sampai 99');
+              event.preventDefault();
+            }
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="signup" method="post" action="">
+      <div>
+	    <span class="label">Masukkan Usia Anda </span>
+		<input type="text" class="kotak_info" name="usia"/>
+		<span class="error">Hanya numerik yang dibolehkan</span>
+	  </div>
+        <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

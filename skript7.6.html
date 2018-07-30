@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Menyorot Sel Tabel Ketika Memiliki Efek Hover</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover { background-color: #00f; color: #fff; }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('td').hover(
+          function(){
+            $(this).addClass('hover');
+          },
+          function(){
+            $('table tr').children().removeClass('hover');
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr><th>Lemparan</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>101</td><td>Jono</td><td>87</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>103</td><td>Acong</td><td>85</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Mengganti Teks Dengan Efek Sliding</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<script type="text/javascript">
+      $(document).ready(function() {
+	    $('p#pesan1').css({'border': '2px solid', 'text-align': 
+		  'center','fontweight':'bold'}).hide();
+        $('p#pesan2').css({'backgroundColor': '#f00','color':'#fff','text-align': 
+		  'center','font-weight':'bold'}).click(
+          function(){
+            $(this).slideUp('slow');
+            $('p#pesan1').slideDown('slow');
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <p id="pesan1">jQuery merupakan projek open-source</p>
+    <p id="pesan2">Memanipulasi DOM menggunakan jQuery</p>
+  </body>
+</html>

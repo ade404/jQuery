@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Membuat Slideshow</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+	  .citra{
+        position:absolute;
+        top:10px;
+        left:10px;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $(".citra").hide();
+        $('.citra:first').fadeIn('slow');
+        $('.citra').click(function(event){
+          $(this).fadeIn('slow');
+          brktnya = ($(this).next().length) ? $(this).next() :$('.citra:first');
+          $(this).fadeOut('slow');
+          brktnya.fadeIn('slow');
+          event.preventDefault();
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <a class="citra" href="http://contoh.com" ><img src="spring1.jpg" width=300px height=300px></a>
+    <a class="citra" href="http://contoh.com"><img src="spring2.jpg" width=300px height=300px></a>
+    <a class="citra" href="http://contoh.com"><img src="spring3.jpg" width=300px height=300px></a>
+    <a class="citra" href="http://contoh.com" ><img src="spring4.jpg" width=300px height=300px></a>
+    <a class="citra" href="http://contoh.com" ><img src="spring5.jpg" width=300px height=300px></a>
+  </body>
+</html>

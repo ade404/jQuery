@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Membuat Penggulung Berita</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      #scroller {
+        height: 250px;
+        width: 230px;
+        overflow:hidden;
+        position: relative;
+        margin:auto;
+        border:2px solid ;
+        padding:10px;
+      }
+      #scroller p {font-weight:bold;position:relative;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        var $pembungkus=$('#scroller p');
+        $pembungkus.css({top:0});
+        var animator = function(imgblock) {
+          imgblock.animate({top:-350}, 8000,function() {
+            imgblock.css({top:250});
+            animator($(this));
+          });
+        }
+        animator($pembungkus);
+      });
+	</script>
+  </head>
+  <body>
+    <div id="scroller">
+      <p>Di sini, Anda memiliki berita dalam format teks yang akan 
+	  ditampilkan pada pengunjung situs Web Anda. Anda ingin berita 
+	  tersebut menggulung ke atas. Ketika berita selesai digulung ke 
+	  atas, Anda ingin menampilkannya kembali dari bawah jendela dan 
+	  berlanjut menggulung ke atas.
+	  Berikut merupakan tubuh HTML untuk menampilkan berita dalam 
+	  format elemen paragraf. Elemen paragraf diapit di dalam elemen 
+	  div dengan ID scroller.</p>
+    </div>
+  </body>
+</html>

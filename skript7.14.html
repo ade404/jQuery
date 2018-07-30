@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Membuka dan Menutup Baris Tabel</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover { background-color: #00f; color: #fff; }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('table tbody tr').hide();
+        $('table tbody').find('.grup_mhsw').parent().show();
+        $('tbody tr').hover(
+          function(){
+            var tr=$('table tbody tr');
+            var indeks=$(this).parent().children().index(this);
+            for(var i=indeks;i<=indeks+5;i++)
+            {
+              $(tr[i]).show();
+            }
+              $(this).addClass('hover');
+          },
+          function(){
+            $('table tbody tr').hide();
+            $('table tbody').find('.grup_mhsw').parent().show();
+            $(this).removeClass('hover');
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr><th>NIM</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td colspan=3 class="grup_mhsw" align="center">NIM 101-105</td></tr>
+        <tr><td>101</td><td>Jono</td><td>87</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>103</td><td>Acong</td><td>85</td></tr>
+        <tr><td>104</td><td>David</td><td>92</td></tr>
+        <tr><td>105</td><td>Kenita</td><td>81</td></tr>
+		
+        <tr><td colspan=3 class="grup_mhsw" align="center">NIM 106-110</td></tr>
+        <tr><td>106</td><td>Charles</td><td>77</td></tr>
+        <tr><td>107</td><td>Jeri</td><td>91</td></tr>
+        <tr><td>108</td><td>Beti</td><td>75</td></tr>
+        <tr><td>109</td><td>Karolin</td><td>82</td></tr>
+        <tr><td>110</td><td>Helen</td><td>71</td></tr>
+		
+        <tr><td colspan=3 class="grup_mhsw" align="center">NIM 111-115</td></tr>
+        <tr><td>111</td><td>Hamzan</td><td>57</td></tr>
+        <tr><td>112</td><td>Tomi</td><td>86</td></tr>
+        <tr><td>113</td><td>Mikael</td><td>68</td></tr>
+        <tr><td>114</td><td>Kristina</td><td>88</td></tr>
+        <tr><td>115</td><td>Kristof</td><td>72</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

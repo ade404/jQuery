@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Menciptakan Array dari Elemen-Elemen HTML</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var arrayNama = $("li").get();
+          $('p').text("Terdapat " + arrayNama.length + " anggota grupku");
+      });
+    </script>
+  </head>
+  <body>
+    <p></p>
+    <ul>
+      <li>Jono</li>
+      <li>Ucok</li>
+      <li>Acong</li>
+      <li>Damar</li>
+      <li>Toni</li>
+    </ul>
+  </body>
+</html>

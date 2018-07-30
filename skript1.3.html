@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Menyeleksi Simpul DOM</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .sorot {
+        font-style: italic;
+        background-color: #0f0;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#akar1').addClass('sorot');
+      });
+    </script>
+  </head>
+  <body>
+    <div id="akar1">
+      <div>Satu</div>
+      <div>Dua</div>
+      <div>Tiga</div>
+    </div>
+    <div id="akar2">
+      <div>Satu</div>
+      <div>Dua</div>
+      <div>Tiga</div>
+    </div>
+    <p>Teks ini akan disorot dan dimiringkan.</p>
+  </body>
+</html>

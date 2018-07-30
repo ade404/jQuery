@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Mengurutkan Array String</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggota = ["Jono", "Ucok", "Acong", "Damar", "Toni"];
+        $('p.semua_anggota').html(anggota.join("<br/>"));
+        anggota = anggota.sort();
+        $('p.diurutkan').html(anggota.join("<br/>"));
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Anggota-Anggota Kelompokku Adalah</h3>
+    <p class="semua_anggota"></p>
+    <h3>Anggota-Anggota Yang Diurutkan</h3>
+    <p class="diurutkan"></p>
+  </body>
+</html>
+
+  

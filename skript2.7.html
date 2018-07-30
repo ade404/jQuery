@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Memfilter Array</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggota = ["Jono", "Ucok", "Acong", "Damar", "Toni"];
+        $('p.semua_anggota').html(anggota.join("<br/>"));
+        anggota = $.grep(anggota, function(v) { return v.length > 4});
+        $('p.dipilih').html(anggota.join("<br/>"));
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Anggota-Anggota Kelompokku Adalah</h3>
+    <p class="semua_anggota"></p>
+    <h3>Nama-Nama dengan Panjang Lebih dari 4 Karakter</h3>
+    <p class="dipilih"></p>
+  </body>
+</html>

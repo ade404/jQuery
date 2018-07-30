@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Membuat Citra Membesar Ketika Berpindah Ke Kanan</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      img{
+        position:relative;
+      }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('img').click(function(){
+          $(this).animate({left:600, width:$(this).width()*2,height:$(this).height()*2},'slow');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <img src="film.jpg" />
+  </body>
+</html>

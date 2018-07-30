@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Menentukan Kapan Elemen Mendapatkan dan Kehilangan Fokus</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.nama').focus(function(){
+          alert('Fokus sekarang pada bidang nama');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    Nama: <input class="nama" type="text" /><br>
+    Usia: <input class="usia" type="text" />
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Menggeser Citra Dua Arah</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      #scroller {
+        position: relative;
+        height:250px;
+        width: 610px;
+        overflow:hidden;
+        margin:auto;
+      }
+      #citra{
+        width: 900px;
+      }
+      #citra a img { border:0; position:relative;}
+      #arah
+      {
+        width: 610px;
+        margin:auto;
+      }
+      .panahkiri{margin-top:10px;}
+      .panahkanan{margin-left:390px;margin-top:10px;}
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var $pembungkus=$('#scroller a img');
+        var animatorkiri = function(blokcitra) {
+          blokcitra.animate({left:-310 }, 2000);
+        }
+        var animatorkanan = function(blokcitra) {
+          blokcitra.animate({left:0 }, 2000);
+        }
+        $('.panahkiri').click(function(event){
+          animatorkiri($pembungkus);
+          event.preventDefault();
+        });
+        $('.panahkanan').click(function(event){
+          animatorkanan($pembungkus);
+          event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="scroller">
+    <div id="citra">
+      <a href="http://contoh.com"><img src="a1.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a2.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a3.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a4.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a5.jpg" width=150px height=200px /></a>
+    </div>
+	</div>
+	<div id="arah">
+    <img src="leftarrow.jpg" class="panahkiri"/>
+    <img src="rightarrow.jpg" class="panahkanan"/>
+    </div>
+  </body>
+</html>

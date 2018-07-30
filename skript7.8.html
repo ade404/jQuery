@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Menyembunyikan Baris Terseleksi</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .hover { background-color: #00f; color: #fff; }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('tbody tr').hover(
+          function(){
+            $(this).find('td').addClass('hover');
+          },
+          function(){
+            $(this).find('td').removeClass('hover');
+          }
+        );
+        $('tbody tr').click(function(){
+          $(this).hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr><th>Lemparan</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>101</td><td>Jono</td><td>87</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>103</td><td>Acong</td><td>85</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Memvalidasi Dua Bidang</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 120px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      div{padding: 5px; }
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.kotak_info').each(function(){
+          $(this).blur(function(){
+            var data=$(this).val();
+            var len=data.length;
+            if(len<1)
+            {
+              $(this).parent().find('.error').show();
+            }
+            else
+            {
+              $(this).parent().find('.error').hide();
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+	  <span class="label">Id Pengguna *</span>
+      <input type="text" class="kotak_info" name="id_pengguna"/>
+      <span class="error">Bidang ini tidak boleh kosong</span>
+    </div>
+    <div>
+      <span class="label">Password *</span>
+      <input type="password" class="kotak_info" name="password" />
+      <span class="error">Bidang ini tidak boleh kosong</span>
+    </div>
+  </body>
+</html>

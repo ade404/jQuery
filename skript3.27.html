@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Menciptakan Link "Baca Selanjutnya... Dengan Animasi"</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<script type="text/javascript">
+      $(document).ready(function() {
+	    $('.pesan').hide();
+        $('span.baca_selanjutnya').click(function(){
+          $('.pesan').fadeIn('slow');
+          $(this).hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+    SS dapat mempermudah pekerjaan untuk mempercantik situs Web.
+    </div>
+    <span class="baca_selanjutnya">Baca Selanjutnya...</span>
+    <div class="pesan">
+      <p>Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	  Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	  JavaScript. CSS dapat mempermudah pekerjaan untuk mempercantik situs Web.
+  	  Untuk memberikan tampilan yang atraktif pada situs Web, CSS sangat diperlukan. 
+	  Anda harus memiliki kemampuan HTML dan CSS yang baik dan mengetahui sedikit tentang 
+	  JavaScript.</p>
+	  </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Memicu Event Secara Otomatis</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 100px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tombol').bind('click', function(){
+          alert('Anda mengklik tombol ' +$(this).text());
+        });
+        $('.miring').trigger('click');
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol tebal">Tebal</span>
+    <span class="tombol miring">Miring</span>
+  </body>
+</html>

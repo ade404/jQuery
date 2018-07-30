@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Menggunakan List Terurut</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggotaList = $( "#list" );
+        var anggota = ["Jono", "Ucok", "Acong", "Damar", "Toni"];
+        anggota=$.map(anggota, function(n){ return(n.toUpperCase());});
+        $.each(anggota,function( index, value ){
+          anggotaList.append($( "<li>" + value + "</li>" ));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Anggota-Anggota Kelompokku Adalah</h3>
+    <ol id="list">
+    </ol>
+  </body>
+</html>

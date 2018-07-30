@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title>Menciptakan Dua Menu dengan Item-Item Terpisah</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .menu_utama {float:left; 
+                 width:200px; 
+                 list-style-type:none; 
+                 margin-right:5px;}
+      li.menu_utama ul {margin: 0; }
+      a {width: 200px;
+         display:block; 
+         text-decoration: none; 
+         background: #00f; color:
+         #fff;padding: 0.5em; 
+         border-bottom: 1px solid #fff; }
+		 
+      ul#dropdownmenu li a:hover { background: #000;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('li.menu_utama').hover(
+          function() {
+            $('ul', this).show();
+          },
+          function() {
+            $('ul', this).hide();
+          }
+        );
+      });
+	</script>
+  </head>
+  <body oncontextmenu="return false">
+    <ul id="dropdownmenu">
+      <li class="menu_utama">
+      <a href="contoh.com">Buku</a>
+        <ul>
+          <a href="contoh.com">Pengembangan Web</a>
+          <a href="contoh.com">Pemrograman</a>
+          <a href="contoh.com">RDBMS</a>
+        </ul>
+      </li>
+      <li class="menu_utama">
+      <a href="contoh.com">Film</a>
+        <ul>
+          <a href="contoh.com">Trailer</a>
+          <a href="contoh.com">Review</a>
+          <a href="contoh.com">Interview Selebriti</a>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

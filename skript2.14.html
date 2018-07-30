@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Menciptakan Array Objek</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var mahasiswa=[
+        {
+          "NIM": 101,
+          "nama": "Jono",
+          "emailId":"jono@gmail.com"
+        },
+        {
+          "NIM": 102,
+          "nama": "Ucok",
+          "emailId":"ucok@gmail.com"
+        },
+        {
+          "NIM": 103,
+          "nama": "Kristof",
+          "emailId":"kristof@gmail.com"
+        }
+        ];
+        $.each(mahasiswa,function( index, value ){
+          $('p.daftar_mahasiswa').append(value.NIM+" "+value.nama+" "+value.emailId);
+        });
+	  });
+    </script>
+  </head>
+  <body>
+    <h3>Daftar Mahasiswa adalah </h3>
+    <p class="daftar_mahasiswa"></p>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Menampilkan Citra Tergulung Ke Kiri dan Menjadi Tak Terlihat Ketika Diklik</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+	.citra{
+      position:relative;
+	}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.citra').click(function (event){
+          $(this).animate({'left': -210}, 'slow' );
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <img src="spring1.jpg" width=200px height=200px class="citra"/>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Mengurutkan Kolom Menaik dan Menurun</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      .naik{
+        background:url('naik.png') no-repeat; padding-left:20px;
+      }
+	  .turun{
+        background:url('turun.png') no-repeat; padding-left:20px;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('th').each(function(kolom) {
+          $(this).hover(
+            function(){
+              $(this).addClass('hover');
+            },
+            function(){
+              $(this).removeClass('hover');
+            }
+          );
+          $(this).click(function(){
+            if($(this).is('.naik'))
+            {
+              $(this).removeClass('naik');
+              $(this).addClass('turun');
+              urutdir=-1;
+            }
+            else
+            {
+              $(this).addClass('naik');
+              $(this).removeClass('turun');
+              urutdir=1;
+            }
+            $(this).siblings().removeClass('naik');
+            $(this).siblings().removeClass('turun');
+            var rek=$('table').find('tbody >tr').get();
+            rek.sort(function(a, b) {
+              var val1 = $(a).children('td').eq(kolom).text().toUpperCase();
+              var val2 = $(b).children('td').eq(kolom).text().toUpperCase();
+              return (val1 < val2) ? -urutdir : (val1 > val2) ? urutdir : 0;
+            });
+            $.each(rek, function(indeks, baris) {
+              $('tbody').append(baris);
+            });
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr><th>NIM</th><th>Nama</th><th>Nilai</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>103</td><td>Jono</td><td>85</td></tr>
+        <tr><td>102</td><td>Ucok</td><td>90</td></tr>
+        <tr><td>101</td><td>Acong</td><td>87</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>

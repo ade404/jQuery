@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Menciptakan Penggulung Bandul</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <style type="text/css">
+      #scroller {
+        position: relative;
+        height:200px;
+        width: 900px;
+        overflow:hidden;
+        margin:auto;
+      }
+      #citra{
+        width: 770px;
+      }
+      #citra a img { border:0; position:relative;}
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var $wrapper=$('#scroller a img');
+        var animator_kirikanan = function() {
+          $wrapper.animate({left:-770}, 5000,function() {
+            $wrapper.animate({left:465 }, 5000);
+            animator_kirikanan();
+          });
+        }
+        animator_kirikanan();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="scroller">
+    <div id="citra">
+      <a href="http://contoh.com"><img src="a1.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a2.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a3.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a4.jpg" width=150px height=200px /></a>
+      <a href="http://contoh.com"><img src="a5.jpg" width=150px height=200px /></a>
+    </div>
+	</div>
+  </body>
+</html>

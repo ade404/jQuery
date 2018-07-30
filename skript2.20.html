@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Menggabungkan Dua Array Objek</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var makanan1 = ['Nasi Pecel', 'Ikan Bakar', 'Ayam Taliwang'];
+        var makanan2 = ['Ikan Naniura', 'Ikan Panggang'];
+        var makanan_gabung = $.merge( makanan1, makanan2 );
+        $('#makanan').html( '<li>' + makanan_gabung.join('</li><li>') + '</li>' );
+      });
+    </script>
+  </head>
+  <body>
+    <h3>Hasil Penggabungan Dua Array:</h3>
+    <p id="makanan"></p>
+  </body>
+</html>

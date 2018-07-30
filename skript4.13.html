@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Seleksi Jamak</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .label {float: left; width: 150px; }
+      .kotak_info {width: 200px; }
+      .error { color: red; padding-left: 10px; }
+      .submit { margin-left: 125px; margin-top: 10px;}
+    </style>
+	<script type="text/javascript">
+      $(document).ready(function() {
+        $('.error').hide();
+        $('.submit').click(function(event){
+          var hitung=$('select option:selected').val();
+          if(hitung==0)
+          {
+            $('p.hasil').hide();
+            $('.error').show();
+          }
+          else
+          {
+            $('.error').hide();
+            $('p.hasil').show();
+            $('p.hasil').text('Anda telah memilih '+$('select option:selected').text());
+          }
+          event.preventDefault();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <span class="label">Pilih Satu Makanan </span>
+      <select id="makanan" class="kotak_info" MULTIPLE>
+        <option value="0">Pilih Satu Makanan</option>
+        <option value="Pizza Rp.5000">Pizza Rp.5000</option>
+        <option value="HotDog Rp.10000">HotDog Rp.10000</option>
+        <option value="Bolu Rp.10000">Bolu Rp.10000</option>
+        <option value="Kentang Goreng Rp.7000">Kentang Goreng Rp.7000</option>
+      </select>
+      <p class="error">Anda tidak memilih satupun opsi</p>
+      <p class="hasil"></p>
+      <input class="submit" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

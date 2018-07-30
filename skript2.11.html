@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Memecah Array</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var anggota = [45, 10, 3, 22, 7];
+        $('p.semua_angka').html(anggota.join("<br>"));
+        anggota_kedua = anggota.splice(0,3);
+        $('p.potongan_pertama').html(anggota_kedua.join("<br />"));
+        $('p.potongan_kedua').html(anggota_kedua.join("<br />"));
+	  });
+    </script>
+  </head>
+  <body>
+    <h3>Array numerik awal adalah</h3>
+    <p class="semua_angka"></p>
+    <h3>Potongan array yang pertama</h3>
+    <p class="potongan_pertama"></p>
+    <h3>Potongan array yang kedua</h3>
+    <p class="potongan_kedua"></p>
+  </body>
+</html>

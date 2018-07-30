@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Menentukan Tombol Mouse Mana Yang Ditekan</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+	<style type="text/css">
+      .tombol{
+        width: 100px;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        border: 2px solid;
+        font-weight: bold;
+      }
+    </style>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        $('.tombol').mousedown(function(event){
+          if(event.button==0){
+            $('p').text('Tombol mouse kiri ditekan');
+          }
+          else
+          {
+            $('p').text('Tombol mouse kanan ditekan');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <span class="tombol">Klik Saya</span><br/><br/>
+    <p></p>
+  </body>
+</html>

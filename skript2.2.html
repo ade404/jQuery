@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Menampilkan Nama-Nama dengan Posisinya di dalam Array</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js">
+    </script>
+    <script type="text/javascript">
+	  $(document).ready(function() {
+        var anggotaList = $( "#list" );
+        var anggota = ["Jono", "Ucok", "Acong", "Damar", "Toni"];
+        $.each(anggota,function(index, value ){
+          anggotaList.append($( "<li>" + value + "</li>" ));
+        });
+      });
+	</script>
+  </head>
+  <body>
+    <h3>Daftar anggota kelompok saya adalah</h3>
+    <ol id="list">
+    </ol>
+  </body>
+</html>
